@@ -6,4 +6,6 @@ import {Component} from 'angular2/core';
   templateUrl: './home.html',
   styleUrls: ['./home.css']
 })
-export class HomeCmp {}
+export class HomeCmp {
+  test:string='zibi';
+}
