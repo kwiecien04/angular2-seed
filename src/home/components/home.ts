@@ -8,4 +8,5 @@ import {Component} from 'angular2/core';
 })
 export class HomeCmp {
   test:string='zibi';
+  some:string='what is this'
 }
