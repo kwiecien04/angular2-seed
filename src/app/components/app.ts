@@ -22,7 +22,7 @@ import {TestTabs} from '../../tabs/tabs';
 @RouteConfig([
   { path: '/', component: HomeCmp, as: 'Home' },
   { path: '/about', component: AboutCmp, as: 'About' },
-  { path:'/test', component:TestTest, as:'Test'},
+  { path:'/test', component:TestTest, as:'Order'},
   { path:'/tabs', component:TestTabs, as:'Tabs'}
 ])
 export class AppCmp {}
