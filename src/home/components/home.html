@@ -1,0 +1,18 @@
+ <div class="container">
+<h1>Howdy!</h1>
+
+<h2>
+  Gratz! <smile></smile>
+</h2>
+
+<p class="note">
+  Your deployment of Angular 2 Seed worked perfectly!
+  Click <em>about (above)</em> to get your reward! works on Linux
+</p>
+<div>Ratings</div>
+<h1><rating [ranges]="ranges" [default]="retval" (retval)="getValue($event)" ></rating></h1>
+<div>
+current rating: {{retval}}
+</div>
+</div>
+
