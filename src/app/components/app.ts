@@ -7,7 +7,7 @@ import {
 import {HomeCmp} from '../../home/components/home';
 import {AboutCmp} from '../../about/components/about';
 import {NameList} from '../../shared/services/name_list';
-import {TestMe} from '../../test/test';
+import {TestMe} from '../../testing/testing';
 import {TestTabs} from '../../tabs/tabs';
 
 
