@@ -7,7 +7,7 @@ import {
 import {HomeCmp} from '../../home/components/home';
 import {AboutCmp} from '../../about/components/about';
 import {NameList} from '../../shared/services/name_list';
-import {TestTest} from '../../test/test.module';
+import {TestMe} from '../../test/test';
 import {TestTabs} from '../../tabs/tabs';
 
 
@@ -22,7 +22,7 @@ import {TestTabs} from '../../tabs/tabs';
 @RouteConfig([
   { path: '/', component: HomeCmp, as: 'Home' },
   { path: '/about', component: AboutCmp, as: 'About' },
-  { path:'/test', component:TestTest, as:'Order'},
+  { path:'/test', component:TestMe, as:'Order'},
   { path:'/tabs', component:TestTabs, as:'Tabs'}
 ])
 export class AppCmp {}
