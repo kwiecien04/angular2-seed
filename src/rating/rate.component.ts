@@ -7,14 +7,14 @@ import {NgClass} from 'angular2/common';
     <span tabindex="0">
     <template  ngFor  [ngForOf]="ranges" #index=index >
     <span class="sr-only">(*)</span>
-    <i id="{{index}}" class="text-info" (click)="clicked(index+1)" (mouseenter)="enter(index + 1)" (mouseleave)="reset()" [ngClass]="index < temp ? 'glyphicon glyphicon-star' : 'glyphicon glyphicon-star-empty'"></i>
+    <i id="{{index}}"  class="text-info" (click)="clicked(index+1)" (mouseenter)="enter(index + 1)" (mouseleave)="reset()" [ngClass]="index < temp ? 'glyphicon glyphicon-star' : 'glyphicon glyphicon-star-empty'"></i>
     </template>
     
     </span>
-    
+    <button class='btn btn-warning'>clickme</button>
     `,
     directives:[NgClass],
-    styles:['i { cursor: pointer; cursor: hand; }'],
+    styles:['i { cursor: pointer; cursor: hand;}','span {outline: 0;}'],
     host:{'(mouseenter)':'show($event)'}
     
 })
