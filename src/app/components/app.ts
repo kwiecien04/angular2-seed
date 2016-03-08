@@ -9,6 +9,7 @@ import {AboutCmp} from '../../about/components/about';
 import {NameList} from '../../shared/services/name_list';
 import {TestMe} from '../../testing/testing';
 import {TestTabs} from '../../tabs/tabs';
+import {UploadImage} from '../../upload/upload';
 
 
 @Component({
@@ -23,6 +24,7 @@ import {TestTabs} from '../../tabs/tabs';
   { path: '/', component: HomeCmp, as: 'Home' },
   { path: '/about', component: AboutCmp, as: 'About' },
   { path:'/test', component:TestMe, as:'Order'},
-  { path:'/tabs', component:TestTabs, as:'Tabs'}
+  { path:'/tabs', component:TestTabs, as:'Tabs'},
+  { path:'/upload', component:UploadImage, as:'Upload'}
 ])
 export class AppCmp {}
