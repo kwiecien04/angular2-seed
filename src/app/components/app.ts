@@ -10,6 +10,7 @@ import {NameList} from '../../shared/services/name_list';
 import {TestMe} from '../../testing/testing';
 import {TestTabs} from '../../tabs/tabs';
 import {UploadImage} from '../../upload/upload';
+import {UploadProgerss} from '../../upload/uploadwithprogress';
 
 
 @Component({
@@ -25,6 +26,7 @@ import {UploadImage} from '../../upload/upload';
   { path: '/about', component: AboutCmp, as: 'About' },
   { path:'/test', component:TestMe, as:'Order'},
   { path:'/tabs', component:TestTabs, as:'Tabs'},
-  { path:'/upload', component:UploadImage, as:'Upload'}
+  { path:'/upload', component:UploadImage, as:'Upload'},
+  { path:'/uploadprogerss', component:UploadProgerss, as:'UploadProgress'}
 ])
 export class AppCmp {}
