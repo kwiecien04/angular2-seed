@@ -1,3 +1,4 @@
+
 import {Component,OnInit,ChangeDetectorRef} from 'angular2/core';
 //import {Observable} from 'rxjs/Observable';
 import {FileUploadService} from './uploadservice';
@@ -33,15 +34,16 @@ export class UploadProgerss implements OnInit{
         // this._uploadService.getObserver().subscribe((progerss:number)=>{this.ups=progerss;console.log(this.ups);},(err)=>console.log(err),()=>console.log('done'));
          //this.progerss=this._uploadService.getObserver();
     }
-    
     upload(){
-      this._uploadService.upload('http://localhost:3000/upload', this.filesToUpload).then((result) => {
+        this._uploadService.upload('http://localhost:3000/upload', this.filesToUpload).then((result) => {
             console.log(result);
         }, (error) => {
             console.error(error);
         });  
         
     }
+        
+    
     fileChangeEvent(fileInput:any){
         this.filesToUpload = <Array<File>>fileInput.target.files;
     }

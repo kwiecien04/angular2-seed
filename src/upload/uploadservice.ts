@@ -6,11 +6,13 @@ import 'rxjs/add/operator/share';
 @Injectable()
 export class FileUploadService{
     private progerss$:Observable<number>;
+
     //private progerss:number=0;
     private pObserver:any;
     constructor(){
         this.progerss$=Observable.create(observer=>{this.pObserver=observer;});
        
+
     }
     public getObserver():Observable<number>{
         return this.progerss$;
@@ -34,6 +36,7 @@ export class FileUploadService{
                 }
             }
         };
+
      
       //this.setUploadInterval(300);
 
@@ -43,6 +46,7 @@ export class FileUploadService{
             setTimeout(()=>{this.pObserver.next(progerss);},2000);
             
             
+
         };
 
         xhr.open('POST', url, true);
