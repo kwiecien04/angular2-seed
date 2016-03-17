@@ -1,26 +1,36 @@
-import {Component,OnInit} from 'angular2/core';
+import {Component,OnInit,ChangeDetectorRef} from 'angular2/core';
 //import {Observable} from 'rxjs/Observable';
 import {FileUploadService} from './uploadservice';
 
 @Component({
      selector:'upload-progerss',
     template:`
-    <h1>you are in upload progress</h1>{{up}}
+    <h1>you are in upload progress</h1>
     <input type="file" (change)="fileChangeEvent($event)" placeholder="Upload file..." />
-    <button type="button" (click)="upload()">Upload</button><input type="text" [(ngModel)]="up"/>
+    <button type="button" (click)="upload()">Upload</button>
+     <div class="progress">
+  <div class="progress-bar" role="progressbar" aria-valuenow='ups' aria-valuemin="0" aria-valuemax="100" style="width: {{ups}}%;">
+    <span class="sr-only">{{ups}}% Complete</span>{{ups}}%
+  </div>
+</div>
      `,
     providers:[FileUploadService]
 })
 export class UploadProgerss implements OnInit{
     //progerss:Observable<number>;
     filesToUpload:Array<File>;
-    up:number=0;
-    constructor(private _uploadService:FileUploadService)  {
-      
+    public ups:number=0;
+    constructor(private _uploadService:FileUploadService,private ref:ChangeDetectorRef)  {
+       setInterval(() => {
+      _uploadService.getObserver().subscribe((progerss:number)=>{  this.ups = progerss;});
+      this.ref.markForCheck();
+    }, 1000);
          this.filesToUpload=[];
     }
     ngOnInit(){
-         this._uploadService.getObserver().subscribe(progerss=>{this.up=progerss;console.log(this.up);},(err)=>console.log(err),()=>console.log('done'));
+        this.ups++;
+        this.ups--;
+        // this._uploadService.getObserver().subscribe((progerss:number)=>{this.ups=progerss;console.log(this.ups);},(err)=>console.log(err),()=>console.log('done'));
          //this.progerss=this._uploadService.getObserver();
     }
     
