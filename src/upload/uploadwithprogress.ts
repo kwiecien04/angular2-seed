@@ -10,7 +10,7 @@ import {FileUploadService} from './uploadservice';
     <input type="file" (change)="fileChangeEvent($event)" placeholder="Upload file..." />
     <button type="button" (click)="upload()">Upload</button>
      <div class="progress">
-  <div class="progress-bar" role="progressbar" aria-valuenow='ups' aria-valuemin="0" aria-valuemax="100" style="width: {{ups}}%;">
+     <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow='ups' aria-valuemin="0" aria-valuemax="100" style="width: {{ups}}%;">
     <span class="sr-only">{{ups}}% Complete</span>{{ups}}%
   </div>
 </div>

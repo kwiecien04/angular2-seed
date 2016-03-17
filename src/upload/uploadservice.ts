@@ -43,8 +43,8 @@ export class FileUploadService{
         xhr.upload.onprogress = (event) => {
             
             var progerss = Math.round(event.loaded / event.total * 100);
-            setTimeout(()=>{this.pObserver.next(progerss);},2000);
-            
+            //setTimeout(()=>{this.pObserver.next(progerss);},2000);
+            this.pObserver.next(progerss);
             
 
         };
