@@ -1,7 +1,8 @@
 
 import {Component,OnInit,ChangeDetectorRef} from 'angular2/core';
-//import {Observable} from 'rxjs/Observable';
+import {Observable} from 'rxjs/Observable';
 import {FileUploadService} from './uploadservice';
+import {IndicatorBar} from './progerss.component';
 
 @Component({
      selector:'upload-progerss',
@@ -9,16 +10,18 @@ import {FileUploadService} from './uploadservice';
     <h1>you are in upload progress</h1>
     <input type="file" (change)="fileChangeEvent($event)" placeholder="Upload file..." />
     <button type="button" (click)="upload()">Upload</button>
-     <div class="progress">
+     <!--<div class="progress">
      <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow='ups' aria-valuemin="0" aria-valuemax="100" style="width: {{ups}}%;">
     <span class="sr-only">{{ups}}% Complete</span>{{ups}}%
   </div>
-</div>
+</div>-->
+<indicator-bar [stream]=in></indicator-bar>
      `,
-    providers:[FileUploadService]
+    providers:[FileUploadService],
+    directives:[IndicatorBar]
 })
 export class UploadProgerss implements OnInit{
-    //progerss:Observable<number>;
+    in:Observable<number>;
     filesToUpload:Array<File>;
     public ups:number=0;
     constructor(private _uploadService:FileUploadService,private ref:ChangeDetectorRef)  {
@@ -29,6 +32,7 @@ export class UploadProgerss implements OnInit{
          this.filesToUpload=[];
     }
     ngOnInit(){
+        this.in=this._uploadService.getObserver();
         this.ups++;
         this.ups--;
         // this._uploadService.getObserver().subscribe((progerss:number)=>{this.ups=progerss;console.log(this.ups);},(err)=>console.log(err),()=>console.log('done'));
