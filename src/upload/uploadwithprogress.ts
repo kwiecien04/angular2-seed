@@ -10,6 +10,11 @@ import {IndicatorBar} from './progerss.component';
     <h1>you are in upload progress</h1>
     <input type="file" (change)="fileChangeEvent($event)" placeholder="Upload file..." />
     <button type="button" (click)="upload()">Upload</button>
+    
+    <label class="btn btn-primary" for="my-file-selector">
+    <input id="my-file-selector" type="file" style="display:none;">
+    Button Text Here
+     </label>
      <!--<div class="progress">
      <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow='ups' aria-valuemin="0" aria-valuemax="100" style="width: {{ups}}%;">
     <span class="sr-only">{{ups}}% Complete</span>{{ups}}%
