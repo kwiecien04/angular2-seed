@@ -48,7 +48,9 @@ export class FileUploadService{
             
 
         };
-
+        xhr.onloadend=(event)=>{
+            setTimeout(()=>{this.pObserver.complete();},1000);
+        };
         xhr.open('POST', url, true);
         xhr.send(formData);
     });

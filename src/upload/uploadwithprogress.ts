@@ -29,8 +29,8 @@ import {IndicatorBar} from './progerss.component';
     <span class="sr-only">{{ups}}% Complete</span>{{ups}}%
   </div>
 </div>-->
-<indicator-bar [stream]=in [visible]=visible></indicator-bar>
-    here:{{visible}} `,
+<indicator-bar [stream]=in [names]=filename></indicator-bar>
+    `,
     styleUrls:['./upload/upload.css'],
     providers:[FileUploadService],
     directives:[IndicatorBar]
@@ -40,7 +40,7 @@ export class UploadProgerss implements OnInit{
     filesToUpload:Array<File>;
     filename:string='';
     public ups:number=0;
-    visible:boolean=false;
+    
     constructor(private _uploadService:FileUploadService,private ref:ChangeDetectorRef)  {
        setInterval(() => {
       _uploadService.getObserver().subscribe((progerss:number)=>{  this.ups = progerss;});
@@ -58,7 +58,7 @@ export class UploadProgerss implements OnInit{
     upload(){
         this._uploadService.upload('http://localhost:3000/upload', this.filesToUpload).then((result) => {
             console.log('good');
-            setTimeout(()=>{this.visible=false;alert('zibi');},2000);
+            this.filename='';
             
         }, (error) => {
             console.error(error);
